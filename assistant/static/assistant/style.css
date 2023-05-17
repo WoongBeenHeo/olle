@@ -1,0 +1,8 @@
+li a {
+    color: green;
+}
+body {
+    background: white url("images/jeju.jpg") no-repeat;
+    background-size:cover;
+    font-family: url("fonts/MaruBuri-SemiBold.ttf");
+}

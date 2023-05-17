@@ -1,0 +1,44 @@
+{% extends 'assistant/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'assistant/style.css' %}">
+<div class="row justify-content-center my-4">
+    <div class="col-md-8 mt-5">
+        <div class="card">
+            <h1 class="card-header text-center">OLLE 올래?</h1>
+            <div class="card-body">
+              <div class="d-flex justify-content-end">
+              </div>
+             <pre></pre>
+              <form action="." method="POST">
+                <!-- this secures the form from malicious attacks during submission -->
+                {% csrf_token %}
+                <input class="form-control mb-2" required type="text" autofocus="autofocus" name="prompt" value="{{ prompt }}" id="">
+                <button class="btn btn-success fw-bold" type="submit">
+                     검색
+                </button>
+                <div calass="row mt-1">
+                  <div class="col-12">
+                    <button type="button" onclick="location.href='https://www.naver.com/';">유형검사</button>
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <pre>
+                {{ formatted_response }}      
+              </pre>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@font-face {
+  font-family: 'MaruBuri-SemiBold';
+  src: local('MaruBuri-SemiBold'),
+  url("{% static 'fonts/MaruBuri-SemiBold.ttf' %}") format("opentype");
+}
+</style>
+{% endblock %}
